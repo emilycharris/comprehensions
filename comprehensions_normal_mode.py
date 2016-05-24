@@ -1,5 +1,5 @@
 import csv
-import operator
+import statistics
 
 #Remove all vowels from this sentence List Comprehensions are the Greatest!
 
@@ -73,10 +73,15 @@ print(wave_height_dictionary())
 
 
 #Create a nested comprehension to get the average of the Homework 1 grades.
-grade_dictionary = {'Gale': {'Homework 1': 88, 'Homework 2': 76},
+
+def homework1_avg():
+    grade_dictionary = {'Gale': {'Homework 1': 88, 'Homework 2': 76},
                     'Jordan': {'Homework 1': 92, 'Homework 2': 87},
                     'Peyton': {'Homework 1': 84, 'Homework 2': 77},
                     'River': {'Homework 1': 85, 'Homework 2': 91}}
+    homework_1 = []
+    [homework_1.append(grades["Homework 1"]) for (person, grades) in grade_dictionary.items()]
 
-#for (person, grades) in grade_dictionary.items():
-    #print(grades)
+    print(statistics.mean(homework_1))
+
+homework1_avg()
